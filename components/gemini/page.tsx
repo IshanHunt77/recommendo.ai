@@ -20,9 +20,9 @@ export const Gemini: React.FC<Props> = ({ movieTitle }) => {
       setLoadingRecommendations(true);
       setError(null);
       try {
-        const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || 'c10096d'; 
+        const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || ''; 
 
-        if (!apiKey || apiKey === 'c10096d') {
+        if (!apiKey) {
           setError("Gemini API Key is missing. Please set NEXT_PUBLIC_GEMINI_API_KEY.");
           setLoadingRecommendations(false);
           return;
@@ -72,7 +72,7 @@ Only provide the movie names in this list format, without any additional descrip
       
       const omdbApiKey = process.env.NEXT_PUBLIC_OMDB_API_KEY || ''; 
 
-      if (!omdbApiKey || omdbApiKey === 'YOUR_OMDB_API_KEY_HERE') {
+      if (!omdbApiKey) {
         console.error("OMDb API Key is missing. Please set NEXT_PUBLIC_OMDB_API_KEY.");
         setLoadingPosters(false);
         return;
@@ -103,7 +103,8 @@ Only provide the movie names in this list format, without any additional descrip
       {loadingRecommendations ? (
         <p>Loading recommendations...</p>
       ) : movies.length === 0 ? (
-        <p>No recommendations found for "{movieTitle}".</p>
+        <p>No recommendations found for “{movieTitle}”.</p>
+
       ) : (
         <div className="flex flex-wrap gap-4">
           {movies.map((title) => (
