@@ -1,9 +1,9 @@
+"use client"
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useRouter } from "next/navigation";
 import LoaderComponent from "../Loader/page";
 import React, { useState, useEffect } from 'react';
-import { Watchlistlogo } from "../WatchlistLogo/page";
 
 interface Type {
   imageUrl: string;
