@@ -10,7 +10,7 @@
 
     "dev": "next dev --turbopack",
 
-    "build": "next build",
+    "build": "npx prisma generate && next build",
 
     "start": "next start",
 
