@@ -4,7 +4,6 @@ import { Button } from "@/componentsShadcn/ui/button";
 import { Input } from "@/componentsShadcn/ui/input";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useData } from "../Context/page";
 import { useRouter } from "next/navigation";
 
 export const Navbar = () => {

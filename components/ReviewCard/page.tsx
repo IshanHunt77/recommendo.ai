@@ -54,7 +54,7 @@ const ReviewCard = ({ dp, review, author, likes, year, filmname ,rating,reviewId
   }, [filmname]);
 
   const handleUpvote = async() => {
-    const res = await axios.post(`${url}/api/pages/updateFilmReview`,{
+     await axios.post(`${url}/api/pages/updateFilmReview`,{
       id : reviewId
     })
     setLikesUpdate(true)
