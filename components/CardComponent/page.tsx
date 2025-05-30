@@ -1,5 +1,5 @@
 "use client";
-import { Card as ShadCard } from "@/components/ui/card";
+import { Card as ShadCard } from "@/componentsShadcn/ui/card";
 
 interface CardProps {
   imageUrl: string;

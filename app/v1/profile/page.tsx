@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Input } from "@/componentsShadcn/ui/input";
+import { Button } from "@/componentsShadcn/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/componentsShadcn/ui/avatar";
 
 const EditProfile = () => {
   const [username, setUsername] = useState("");

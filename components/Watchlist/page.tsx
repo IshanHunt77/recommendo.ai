@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CardComponent from "../CardComponent/page";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/componentsShadcn/ui/button";
 import { useRouter } from "next/navigation";
 import LoaderComponent from "../Loader/page";
 

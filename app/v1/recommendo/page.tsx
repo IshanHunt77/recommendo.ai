@@ -1,9 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { Card } from "@/components/ui/card";
-import MovieCards from "../../components/MovieCards/page";
-import { Navbar } from "../../components/Navbar/page";
-import ReviewCard from "../../components/ReviewCard/page";
+import { Card } from "@/componentsShadcn/ui/card";
+import MovieCards from "../../../components/MovieCards/page";
+import { Navbar } from "../../../components/Navbar/page";
+import ReviewCard from "../../../components/ReviewCard/page";
 import { Button } from "@mui/material";
 import { useSession } from "next-auth/react";
 import Home2 from "../home/page";

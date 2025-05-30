@@ -1,5 +1,5 @@
 "use client"
-import { Card } from "@/components/ui/card";
+import { Card } from "@/componentsShadcn/ui/card";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import CardComponent from "../CardComponent/page";
 import { useEffect, useState } from "react";

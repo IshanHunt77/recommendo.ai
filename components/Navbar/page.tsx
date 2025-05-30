@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/componentsShadcn/ui/button";
+import { Input } from "@/componentsShadcn/ui/input";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useData } from "../Context/page";
