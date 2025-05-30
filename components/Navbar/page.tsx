@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 
 export const Navbar = () => {
   const [movie, setMovie] = useState("");
-  const { data, setData } = useData();
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

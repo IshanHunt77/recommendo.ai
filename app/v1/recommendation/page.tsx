@@ -6,14 +6,11 @@ import { useSearchParams } from "next/navigation";
 import { useSocket } from "@/app/providers";
 import { useSession } from "next-auth/react";
 import { Navbar } from "../../../components/Navbar/page";
-import RecommendationCard from "../../../components/RecommendationCard/page";
 import ReviewCard from "../../../components/ReviewCard/page";
 import { Gemini } from "@/components/gemini/page";
 import { PostReview } from "@/components/PostReview/page";
-import LoaderComponent from "@/components/Loader/page";
 import Load from "@/app/Load/page";
 import { Watchlistlogo } from "@/components/WatchlistLogo/page";
-import { useData } from "@/components/Context/page";
 import Signup from "../signup/page";
 
 interface MovieDet {

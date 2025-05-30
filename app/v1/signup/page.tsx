@@ -5,11 +5,9 @@ import { Card } from "@/componentsShadcn/ui/card";
 import { Input } from "@/componentsShadcn/ui/input";
 import { Button } from "@/componentsShadcn/ui/button";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
 const Signup = () => {
-    const router  = useRouter()
   const url = process.env.NEXT_PUBLIC_BASE_URL;
   const [form, setForm] = useState({
     username: "",

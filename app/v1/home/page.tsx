@@ -4,9 +4,7 @@ import { useSession } from "next-auth/react";
 import { Navbar } from "../../../components/Navbar/page";
 import Watchlist from "../../../components/Watchlist/page";
 import ExploreMovies from "@/components/Explore/page";
-import { useData } from "@/components/Context/page";
 import Signup from "../signup/page";
-import { useEffect } from "react";
 import Footer from "@/components/Footer/page";
 
 const Home2 = () => {

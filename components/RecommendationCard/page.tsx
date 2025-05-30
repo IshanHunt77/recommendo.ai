@@ -1,6 +1,5 @@
 "use client"
 import { Card } from "@/componentsShadcn/ui/card";
-import { Checkbox } from "@/componentsShadcn/ui/checkbox";
 import { useRouter } from "next/navigation";
 import LoaderComponent from "../Loader/page";
 import React, { useState, useEffect } from 'react';
