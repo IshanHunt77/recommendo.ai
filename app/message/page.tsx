@@ -2,7 +2,7 @@
 
 import React, { FormEvent, useEffect, useState } from "react";
 import { useSocket } from "../providers";
-import LoaderComponent from "../api/components/Loader/page";
+import LoaderComponent from "../components/Loader/page";
 
 export default function LiveChat() {
   const [messages, setMessages] = useState<string[]>([]);

@@ -5,15 +5,15 @@ import { useState, useRef, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useSocket } from "@/app/providers";
 import { useSession } from "next-auth/react";
-import { Navbar } from "../../api/components/Navbar/page";
-import RecommendationCard from "../../api/components/RecommendationCard/page";
-import ReviewCard from "../../api/components/ReviewCard/page";
-import { Gemini } from "@/app/api/components/gemini/page";
-import { PostReview } from "@/app/api/components/PostReview/page";
-import LoaderComponent from "@/app/api/components/Loader/page";
+import { Navbar } from "../../components/Navbar/page";
+import RecommendationCard from "../../components/RecommendationCard/page";
+import ReviewCard from "../../components/ReviewCard/page";
+import { Gemini } from "@/app/components/gemini/page";
+import { PostReview } from "@/app/components/PostReview/page";
+import LoaderComponent from "@/app/components/Loader/page";
 import Load from "@/app/Load/page";
-import { Watchlistlogo } from "@/app/api/components/WatchlistLogo/page";
-import { useData } from "@/app/api/components/Context/page";
+import { Watchlistlogo } from "@/app/components/WatchlistLogo/page";
+import { useData } from "@/app/components/Context/page";
 import Signup from "../signup/page";
 
 interface MovieDet {

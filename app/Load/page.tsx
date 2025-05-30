@@ -1,4 +1,4 @@
-import LoaderComponent from "../api/components/Loader/page"
+import LoaderComponent from "../components/Loader/page"
 
 const Load = ()=>{
     return <div>

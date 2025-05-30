@@ -1,13 +1,13 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { Navbar } from "../../api/components/Navbar/page";
-import Watchlist from "../../api/components/Watchlist/page";
-import ExploreMovies from "@/app/api/components/Explore/page";
-import { useData } from "@/app/api/components/Context/page";
+import { Navbar } from "../../components/Navbar/page";
+import Watchlist from "../../components/Watchlist/page";
+import ExploreMovies from "@/app/components/Explore/page";
+import { useData } from "@/app/components/Context/page";
 import Signup from "../signup/page";
 import { useEffect } from "react";
-import Footer from "@/app/api/components/Footer/page";
+import Footer from "@/app/components/Footer/page";
 
 const Home2 = () => {
   const { data: session,status } = useSession();
