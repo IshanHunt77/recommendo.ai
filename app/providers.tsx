@@ -24,7 +24,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const socketInstance = io("http://localhost:3005"); // WebSocket server
+    const socketInstance = io("https://recommendo-socket.onrender.com"); // WebSocket server
     setSocket(socketInstance);
 
     return () => {

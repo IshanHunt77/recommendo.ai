@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 import socketHandler from "./sockets/index.js";
 
-const PORT = 3005;
+const PORT = process.env.PORT || 3005;
 
 const httpServer = createServer()
 
