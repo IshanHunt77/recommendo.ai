@@ -20,12 +20,12 @@ const Home = () => {
   // }
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="flex justify-between p-4">
-        <div className="italic text-3xl md:text-6xl font-bold text-black underline decoration-black">Recommend'o</div>
+      <div className="flex justify-between p-2 md:p-4">
+        <div className="italic text-2xl md:text-6xl mt-1 font-bold text-black underline decoration-black">Recommend'o</div>
         <Navbar />
       </div>
 
-      <div className="relative w-full h-144 overflow-hidden">
+      <div className="relative w-full h-64 md:h-150 overflow-hidden">
         <img 
           src="/thurman.jpg"
           alt="Pulp Fiction"
@@ -33,7 +33,7 @@ const Home = () => {
         />
         <div className="absolute inset-0 bg-black/70" />
           <div className="absolute inset-0 flex items-center justify-end md:pr-16">
-            <h1 className="text-white text-xl md:text-5xl font-bold text-right max-w-lg">
+            <h1 className="text-white text-sm md:text-5xl font-bold text-right max-w-lg">
               "Not sure what to watch next?<br />Recommendo’s got your back."
             </h1>
           </div>
@@ -46,7 +46,7 @@ const Home = () => {
 
       <div className="flex-col md:p-4 md:grid grid-cols-2 gap-4 ">
         <div className="col-span-1">
-          <h1 className="text-lg font-bold mb-2">Famous Reviews</h1>
+          <h1 className="italic text-lg font-bold mb-2 ml-1">Famous Reviews</h1>
           <div className="flex flex-col gap-2">
             <ReviewCard
               dp="/batmanLogo.jpeg"

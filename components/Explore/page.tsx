@@ -52,7 +52,7 @@ const ExploreMovies: React.FC = () => {
             <img
               src={movie.Poster}
               alt={movie.Title}
-              className="w-32 h-44 md:w-full md:h-auto object-cover rounded-md shadow-md"
+              className="w-24 h-30 md:w-full md:h-auto object-cover rounded-md shadow-md"
             />
             <p className="mt-2 text-center text-sm text-gray-700">{movie.Title}</p>
           </div>

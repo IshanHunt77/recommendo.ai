@@ -48,8 +48,8 @@ const RecommendationCard = ({ imageUrl, film }: Type) => {
   };
 
   return (
-    <Card className="relative w-30 md:w-48 flex flex-col overflow-hidden rounded-sm shadow-lg p-0 gap-0 hover:shadow-2xl transition-shadow duration-300" onClick={handleNav}>
-      <div className="relative h-40 w-full md:h-54 flex items-center justify-center">
+    <Card className="relative w-18 md:w-48 flex flex-col overflow-hidden rounded-sm shadow-lg p-0 gap-0 hover:shadow-2xl transition-shadow duration-300" onClick={handleNav}>
+      <div className="relative h-28 w-full md:h-54 flex items-center justify-center">
        
         {isImageLoading && !hasImageError ? (
          
@@ -87,7 +87,7 @@ const RecommendationCard = ({ imageUrl, film }: Type) => {
 
       </div>
 
-      <h3 className="bg-black text-white text-center p-2 text-sm break-words">
+      <h3 className="bg-black hidden md:block text-white text-center p-2 text-sm break-words">
         {film.slice(0,15)}
       </h3>
     </Card>

@@ -141,7 +141,7 @@ export default function Recommend() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex justify-between p-4">
-        <div className="italic text-3xl md:text-6xl font-bold text-black underline decoration-black">
+        <div className="italic text-2xl mt-1 md:text-6xl font-bold text-black underline decoration-black">
           Recommend'o
         </div>
         <Navbar />
@@ -157,20 +157,20 @@ export default function Recommend() {
 
     <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 border border-gray-300">
   <div className="grid grid-cols-2 gap-4 sm:gap-6 items-start">
-    {/* Poster Section */}
+    
     {!info?.Poster ? (
       <div className="flex justify-center items-center w-full h-60 sm:h-80 col-span-1">
         <Load />
       </div>
     ) : (
       <img
-        className="rounded-md shadow-md w-96 sm:h-134 object-cover"
+        className="rounded-md mt-25 md:mt-0 shadow-md w-96 sm:h-134 object-cover"
         src={info?.Poster}
         alt="Movie Poster"
       />
     )}
 
-    {/* Info Section */}
+   
     <div className="flex flex-col justify-start space-y-2 sm:space-y-3 text-black text-xs sm:text-sm md:text-base">
       <h3 className="text-base sm:text-xl md:text-3xl font-bold">{info?.Title}</h3>
       <p className="italic"><strong>Director:</strong> {info?.Director}</p>

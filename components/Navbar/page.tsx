@@ -14,11 +14,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { FaSearch } from "react-icons/fa";
+import { useMediaQuery } from "@mui/material";
+
 
 export const Navbar = () => {
   const [movie, setMovie] = useState("");
   const router = useRouter();
-
+  const isLargeScreen = useMediaQuery("(min-width: 768px)")
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMovie(e.target.value);
   };
@@ -36,6 +39,9 @@ export const Navbar = () => {
   };
   const goToProfile = ()=>{
     router.push('/v1/profile')
+  }
+  const goToHome= ()=>{
+    router.push('/v1/home')
   }
   return (
     <div className="px-1 py-1 md:px-6 md:py-4 flex items-center justify-between text-red shadow-md">
@@ -56,9 +62,10 @@ export const Navbar = () => {
         </Button>
         <Button
           variant="ghost"
+          onClick={goToHome}
           className="text-md  hidden md:block hover:underline underline-offset-4 transition-all duration-200 font-semibold"
         >
-          Films
+          Home
         </Button>
         <Button
           variant="ghost"
@@ -75,14 +82,21 @@ export const Navbar = () => {
         </Button>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 md:gap-4">
         <Input
           placeholder="Search Movies, Series..."
           className="w-40 md:w-64"
           onChange={handleChange}
           value={movie}
         />
-        <Button onClick={handleNav}>Submit</Button>
+        {isLargeScreen ? 
+         <Button onClick={handleNav}>Submit</Button>
+        :
+        <div>
+          <FaSearch onClick={handleNav}/>
+        </div>
+        }
+       
       </div>
        <div className="md:hidden block">
         <DropdownMenu >

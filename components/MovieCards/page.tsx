@@ -11,8 +11,8 @@ interface Movie {
 
 const MovieCards = () => {
   const isLargeScreen = useMediaQuery("(min-width: 768px)")
-  const h = isLargeScreen ? 40 : 32;
-  const w = isLargeScreen ? 32 : 20;
+  const h = isLargeScreen ? 40 : 24;
+  const w = isLargeScreen ? 32 : 17;
   const [posters, setPosters] = useState<string[]>([]);
 
   const movies: Movie[] = [
