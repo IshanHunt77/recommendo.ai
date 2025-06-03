@@ -18,8 +18,8 @@ const Home2 = () => {
     
     <div className="flex flex-col min-h-screen bg-white px-6 py-4">
      
-      <div className="flex justify-between items-center mb-6">
-        <div className="italic text-4xl sm:text-6xl font-bold text-black underline decoration-black">
+      <div className="flex justify-between items-center mb-6 gap-4 ">
+        <div className="italic text-3xl md:text-6xl font-bold text-black underline decoration-black">
           Recommend'o
         </div>
         <Navbar />
@@ -46,7 +46,7 @@ const Home2 = () => {
      
       <div className="flex justify-center mb-12">
         <div className="w-full max-w-5xl">
-          <Watchlist />
+          <Watchlist user={session.user?.name || ""} />
         </div>
       </div>
 

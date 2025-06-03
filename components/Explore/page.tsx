@@ -46,13 +46,13 @@ const ExploreMovies: React.FC = () => {
   return (
     <div className="mt-10">
       <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Explore Movies</h2>
-      <div className="flex flex-wrap gap-6 justify-center">
+      <div className="flex flex-row gap-2 md:gap-6 justify-center">
         {movies.map((movie) => (
           <div key={movie.imdbID} className="w-40 flex flex-col items-center">
             <img
               src={movie.Poster}
               alt={movie.Title}
-              className="w-full h-auto object-cover rounded-md shadow-md"
+              className="w-32 h-44 md:w-full md:h-auto object-cover rounded-md shadow-md"
             />
             <p className="mt-2 text-center text-sm text-gray-700">{movie.Title}</p>
           </div>

@@ -33,7 +33,7 @@ const ReviewCard = ({ dp, review, author, likes, year, filmname ,rating,reviewId
   const [comment,setComment] = useState<Comment[]>([])
   const [likesUpdate,setLikesUpdate] = useState(false)
   const url = process.env.NEXT_PUBLIC_BASE_URL
-
+  
   useEffect(() => {
     const getPosterComments = async () => {
       try {
@@ -65,10 +65,10 @@ const ReviewCard = ({ dp, review, author, likes, year, filmname ,rating,reviewId
   }
 
   return (
-    <Card className="w-full max-w-4xl flex flex-col mb-6 p-6 bg-gradient-to-r from-gray-800 to-gray-700 text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out">
+    <Card className="w-144 md:w-full max-w-4xl flex flex-col mb-6 p-6 bg-gradient-to-r from-gray-800 to-gray-700 text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out">
   <div className="grid grid-cols-5 gap-4">
     <CardComponent imageUrl={poster} h={40} w={28} watchlist={false} />
-    <div className="flex flex-col col-span-4 justify-between">
+    <div className="flex flex-col col-span-4 justify-between ml-4 md:ml-0">
       <div className="mb-2">
         <h1 className="text-2xl font-bold">{filmname} <span className="text-lg font-medium text-gray-300">({year})</span></h1>
       </div>

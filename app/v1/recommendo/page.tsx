@@ -15,35 +15,36 @@ const Home = () => {
   const handleNav = () => {
     router.push("/member");
   };
-  if(status==="authenticated"){
-    return <Home2/>
-  }
+  // if(status==="authenticated"){
+  //   return <Home2/>
+  // }
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex justify-between p-4">
-        <div className="italic text-6xl font-bold text-black underline decoration-black">Recommend'o</div>
+        <div className="italic text-3xl md:text-6xl font-bold text-black underline decoration-black">Recommend'o</div>
         <Navbar />
       </div>
 
-      <div className="relative w-full h-screen overflow-hidden">
+      <div className="relative w-full h-144 overflow-hidden">
         <img 
           src="/thurman.jpg"
           alt="Pulp Fiction"
           className="absolute w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 flex items-center justify-end pr-16">
-          <h1 className="text-white text-2xl md:text-5xl font-bold text-right max-w-lg">
-            "Not sure what to watch next? Recommendo’s got your back."
-          </h1>
-        </div>
+          <div className="absolute inset-0 flex items-center justify-end md:pr-16">
+            <h1 className="text-white text-xl md:text-5xl font-bold text-right max-w-lg">
+              "Not sure what to watch next?<br />Recommendo’s got your back."
+            </h1>
+          </div>
+
       </div>
 
       <div className="flex gap-2 p-4">
         <MovieCards />
       </div>
 
-      <div className="p-4 grid grid-cols-2 gap-4">
+      <div className="flex-col md:p-4 md:grid grid-cols-2 gap-4 ">
         <div className="col-span-1">
           <h1 className="text-lg font-bold mb-2">Famous Reviews</h1>
           <div className="flex flex-col gap-2">

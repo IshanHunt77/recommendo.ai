@@ -141,7 +141,7 @@ export default function Recommend() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex justify-between p-4">
-        <div className="italic text-6xl font-bold text-black underline decoration-black">
+        <div className="italic text-3xl md:text-6xl font-bold text-black underline decoration-black">
           Recommend'o
         </div>
         <Navbar />
@@ -155,40 +155,41 @@ export default function Recommend() {
       <Watchlistlogo filmName={movieName} />
     </div>
 
-    <div className="bg-white rounded-lg shadow-xl p-6 border border-gray-300">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        {!info?.Poster ? (
-          <div className="flex justify-center items-center w-full h-80">
-            <Load />
-          </div>
-        ) : (
-          <img
-            className="rounded-md shadow-md w-80 h-auto object-cover"
-            src={info?.Poster}
-            alt="Movie Poster"
-          />
-        )}
-
-      
-        <div className="flex flex-col justify-center space-y-3 text-black">
-          <h3 className="text-4xl font-bold">{info?.Title}</h3>
-          <p className="text-md italic"><strong>Director:</strong> {info?.Director}</p>
-          <p className="text-md italic"><strong>Year:</strong> {info?.Year}</p>
-          <p className="text-md italic"><strong>Rated:</strong> {info?.Rated}</p>
-          <p className="text-md italic"><strong>Genre:</strong> {info?.Genre}</p>
-          <p className="text-md italic"><strong>Writer:</strong> {info?.Writer}</p>
-          <p className="text-md italic"><strong>Actors:</strong> {info?.Actors}</p>
-          <p className="text-md italic"><strong>Plot:</strong> {info?.Plot}</p>
-          <p className="text-md italic"><strong>Awards:</strong> {info?.Awards}</p>
-          <p className="text-md italic"><strong>IMDb Rating:</strong> {info?.imdbRating}</p>
-          <p className="text-md italic">
-            <strong>Rotten Tomatoes:</strong>{" "}
-            {info?.Ratings?.find((r) => r.Source === "Rotten Tomatoes")?.Value ?? "N/A"}
-          </p>
-        </div>
+    <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 border border-gray-300">
+  <div className="grid grid-cols-2 gap-4 sm:gap-6 items-start">
+    {/* Poster Section */}
+    {!info?.Poster ? (
+      <div className="flex justify-center items-center w-full h-60 sm:h-80 col-span-1">
+        <Load />
       </div>
+    ) : (
+      <img
+        className="rounded-md shadow-md w-96 sm:h-134 object-cover"
+        src={info?.Poster}
+        alt="Movie Poster"
+      />
+    )}
+
+    {/* Info Section */}
+    <div className="flex flex-col justify-start space-y-2 sm:space-y-3 text-black text-xs sm:text-sm md:text-base">
+      <h3 className="text-base sm:text-xl md:text-3xl font-bold">{info?.Title}</h3>
+      <p className="italic"><strong>Director:</strong> {info?.Director}</p>
+      <p className="italic"><strong>Year:</strong> {info?.Year}</p>
+      <p className="italic"><strong>Rated:</strong> {info?.Rated}</p>
+      <p className="italic"><strong>Genre:</strong> {info?.Genre}</p>
+      <p className="italic"><strong>Writer:</strong> {info?.Writer}</p>
+      <p className="italic"><strong>Actors:</strong> {info?.Actors}</p>
+      <p className="italic"><strong>Plot:</strong> {info?.Plot}</p>
+      <p className="italic"><strong>Awards:</strong> {info?.Awards}</p>
+      <p className="italic"><strong>IMDb Rating:</strong> {info?.imdbRating}</p>
+      <p className="italic">
+        <strong>Rotten Tomatoes:</strong>{" "}
+        {info?.Ratings?.find((r) => r.Source === "Rotten Tomatoes")?.Value ?? "N/A"}
+      </p>
     </div>
+  </div>
+</div>
+
   </div>
 
  
@@ -197,12 +198,12 @@ export default function Recommend() {
 
       <PostReview film={movieName} dp={dp || ''}/>
 
-      <div className="flex flex-row mt-8 px-4 gap-6">
+      <div className="flex flex-col md:flex-row mt-8 md:px-4 gap-6">
       
         <div className="w-full lg:w-1/2 px-4">
         {reviews && reviews.length > 0 ? (
   <>
-    <div className="font-bold text-2xl italic text-white mb-6 ml-2">
+    <div className="font-bold text-2xl italic text-black mb-6 ml-2">
       Popular Reviews
     </div>
     {reviews.slice(l, l + 2).map((rev, index) => (

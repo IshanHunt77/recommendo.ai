@@ -5,6 +5,7 @@ import axios from "axios";
 import { Input } from "@/componentsShadcn/ui/input";
 import { Button } from "@/componentsShadcn/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/componentsShadcn/ui/avatar";
+import { signIn, signOut } from "next-auth/react";
 
 const EditProfile = () => {
   const [username, setUsername] = useState("");
@@ -56,6 +57,8 @@ const EditProfile = () => {
       });
       setSuccessMsg("Profile updated successfully!");
       setProfilePhoto(uploadedUrl);
+      setTimeout(()=>signOut(),1000)
+      signIn()
     } catch (err) {
       console.error("Error updating profile", err);
       setSuccessMsg("Error updating profile.");

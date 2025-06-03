@@ -3,12 +3,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardComponent from "../CardComponent/page";
+import { useMediaQuery } from "@mui/material";
 
 interface Movie {
   filmname: string;
 }
 
 const MovieCards = () => {
+  const isLargeScreen = useMediaQuery("(min-width: 768px)")
+  const h = isLargeScreen ? 40 : 32;
+  const w = isLargeScreen ? 32 : 20;
   const [posters, setPosters] = useState<string[]>([]);
 
   const movies: Movie[] = [
@@ -50,12 +54,13 @@ const MovieCards = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-10 gap-4 p-4">
+    <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-10 gap-4 p-4">
       {posters.map((poster, index) => (
-        <CardComponent key={index} imageUrl={poster} h={40} w={32} watchlist={false}/>
+        <CardComponent key={index} imageUrl={poster} h={h} w={w} watchlist={false}/>
       ))}
     </div>
   );
 };
 
 export default MovieCards;
+//40,32 grid - 2

@@ -6,8 +6,11 @@ import { Input } from "@/componentsShadcn/ui/input";
 import { Button } from "@/componentsShadcn/ui/button";
 import axios from "axios";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 
 const Signup = () => {
+  const router = useRouter()
   const url = process.env.NEXT_PUBLIC_BASE_URL;
   const [form, setForm] = useState({
     username: "",
@@ -28,6 +31,7 @@ const Signup = () => {
         password: form.password,
       });
       console.log("Signed up successfully:", res.data);
+      signIn()
       
     } catch (err: any) {
       console.error("Signup failed:", err.response?.data || err.message);
