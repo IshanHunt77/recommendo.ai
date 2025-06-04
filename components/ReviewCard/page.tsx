@@ -71,7 +71,7 @@ const ReviewCard = ({ dp, review, author, likes, year, filmname ,rating,reviewId
   return (
     <Card className="w-96 md:w-full max-w-4xl flex flex-col mb-6 p-2 pt-6 md:p-6 bg-gradient-to-r from-gray-800 to-gray-700 text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out">
   <div className="grid grid-cols-5 gap-10">
-    <CardComponent imageUrl={poster} h={h} w={w} watchlist={false} />
+    <CardComponent imageUrl={poster} h={h} w={w} watchlist={false} movieCards={false} />
     <div className="flex flex-col col-span-4 justify-between ml-6 md:ml-0">
       <div className="mb-2">
         <h1 className="text-2xl font-bold">{filmname} <span className="text-lg font-medium text-gray-300">({year})</span></h1>

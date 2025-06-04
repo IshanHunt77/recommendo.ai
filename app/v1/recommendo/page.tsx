@@ -26,7 +26,7 @@ const Home = () => {
         <Navbar />
       </div>
 
-      <div className="relative w-full h-64 md:h-150 overflow-hidden">
+      <div className="relative w-full h-80 md:h-150 overflow-hidden">
         <img 
           src="/thurman.jpg"
           alt="Pulp Fiction"
@@ -41,7 +41,7 @@ const Home = () => {
 
       </div>
 
-      <div className="flex gap-2 p-4">
+      <div className="flex gap-2 p-1 md:p-4">
         <MovieCards />
       </div>
 

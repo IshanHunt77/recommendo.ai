@@ -54,9 +54,9 @@ const MovieCards = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-10 gap-4 p-4">
+    <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-10 gap-2 md:gap-4 p-4">
       {posters.map((poster, index) => (
-        <CardComponent key={index} imageUrl={poster} h={h} w={w} watchlist={false}/>
+        <CardComponent key={index} imageUrl={poster} h={h} w={w} watchlist={false} movieCards={true} />
       ))}
     </div>
   );

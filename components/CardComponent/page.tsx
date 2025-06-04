@@ -5,13 +5,14 @@ interface CardProps {
   imageUrl: string;
   h: number;
   w: number;
-  watchlist:boolean
+  watchlist:boolean;
+  movieCards:boolean;
 }
 
-const CardComponent: React.FC<CardProps> = ({ imageUrl, h, w ,watchlist}) => {
+const CardComponent: React.FC<CardProps> = ({ imageUrl, h, w ,watchlist,movieCards}) => {
   return (
     <ShadCard
-      className={`relative w-${w} h-${h} mt-6 rounded-sm overflow-hidden py-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 text-white`}
+      className={`relative w-${w} h-${h} rounded-sm overflow-hidden py-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 text-white ${movieCards ? "": "mt-6"}`}
     >
       
       {imageUrl && (
