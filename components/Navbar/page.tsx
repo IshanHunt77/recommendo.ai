@@ -1,4 +1,5 @@
 "use client";
+import { CgProfile } from "react-icons/cg";
 
 import { Button } from "@/componentsShadcn/ui/button";
 import { Input } from "@/componentsShadcn/ui/input";
@@ -85,7 +86,7 @@ export const Navbar = () => {
       <div className="flex items-center gap-2 md:gap-4">
         <Input
           placeholder="Search Movies, Series..."
-          className="w-40 md:w-64"
+          className="w-20 md:w-64"
           onChange={handleChange}
           value={movie}
         />
@@ -101,7 +102,7 @@ export const Navbar = () => {
        <div className="md:hidden block">
         <DropdownMenu >
           <div className="p-2">
-        <DropdownMenuTrigger><BsThreeDotsVertical/></DropdownMenuTrigger>
+        <DropdownMenuTrigger><CgProfile/></DropdownMenuTrigger>
 
           </div>
         <DropdownMenuContent>

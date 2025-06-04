@@ -26,20 +26,23 @@ const Home = () => {
         <Navbar />
       </div>
 
-      <div className="relative w-full h-80 md:h-150 overflow-hidden">
-        <img 
-          src="/thurman.jpg"
-          alt="Pulp Fiction"
-          className="absolute w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/70" />
-          <div className="absolute inset-0 flex items-center justify-end md:pr-16">
-            <h1 className="text-white text-sm md:text-5xl font-bold text-right max-w-lg">
-              "Not sure what to watch next?<br />Recommendo’s got your back."
-            </h1>
-          </div>
+      <div className="relative w-full h-96 md:h-150 overflow-hidden">
+  <img 
+    src="/thurman.jpg"
+    alt="Pulp Fiction"
+    className="absolute w-full h-full object-cover"
+  />
 
-      </div>
+  {/* Darker gradient from top to bottom */}
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black" />
+
+  <div className="absolute inset-0 flex items-center md:items-end mb-10 justify-center md:justify-end md:pr-16">
+    <h1 className="text-white text-sm md:text-5xl font-bold text-right max-w-lg">
+      "Not sure what to watch next?<br />Recommendo’s got your back."
+    </h1>
+  </div>
+</div>
+
 
       <div className="flex gap-2 p-1 md:p-4">
         <MovieCards />
