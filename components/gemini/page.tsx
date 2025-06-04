@@ -106,7 +106,7 @@ Only provide the movie names in this list format, without any additional descrip
         <p>No recommendations found for “{movieTitle}”.</p>
 
       ) : (
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-2 md:gap-4">
           {movies.map((title) => (
             <RecommendationCard
               key={title}

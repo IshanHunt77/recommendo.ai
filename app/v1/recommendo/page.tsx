@@ -7,6 +7,7 @@ import ReviewCard from "../../../components/ReviewCard/page";
 import { Button } from "@mui/material";
 import { useSession } from "next-auth/react";
 import Home2 from "../home/page";
+import Footer from "@/components/Footer/page";
 
 const Home = () => {
   const router = useRouter();
@@ -87,9 +88,7 @@ const Home = () => {
         </Button>
       </div>
 
-      <footer className="mt-auto bg-black text-white text-center p-4">
-        <p>Contact us: <a className="underline" href="mailto:recommendo115@gmail.com">recommendo115@gmail.com</a></p>
-      </footer>
+      <Footer/>
      
 
     </div>

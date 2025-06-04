@@ -12,6 +12,8 @@ import { Watchlistlogo } from "@/components/WatchlistLogo/page";
 import { Navbar } from "../Navbar/page";
 import ReviewCard from "../ReviewCard/page";
 import Signup from "@/app/v1/signup/page";
+import { useMediaQuery } from "@mui/material";
+import Footer from "../Footer/page";
 
 interface MovieDet {
   Title:string;
@@ -58,6 +60,7 @@ export default function Recommend() {
   const socket = useSocket();
   const chatRef = useRef<HTMLDivElement>(null);
   console.log(chats)
+  const isLargeScreen = useMediaQuery("(min-width: 768px)")
 
   useEffect(() => {
     setMovieName(paramMovie);
@@ -159,12 +162,12 @@ export default function Recommend() {
   <div className="grid grid-cols-2 gap-4 sm:gap-6 items-start">
     
     {!info?.Poster ? (
-      <div className="flex justify-center items-center w-full h-60 sm:h-80 col-span-1">
+      <div className="flex justify-center items-center w-full h-64 sm:h-80 col-span-1">
         <Load />
       </div>
     ) : (
       <img
-        className="rounded-md mt-25 md:mt-0 shadow-md w-96 sm:h-134 object-cover"
+        className="rounded-md mt-15 md:mt-0 shadow-md h-64 w-96 sm:h-134 object-cover"
         src={info?.Poster}
         alt="Movie Poster"
       />
@@ -174,12 +177,13 @@ export default function Recommend() {
     <div className="flex flex-col justify-start space-y-2 sm:space-y-3 text-black text-xs sm:text-sm md:text-base">
       <h3 className="text-base sm:text-xl md:text-3xl font-bold">{info?.Title}</h3>
       <p className="italic"><strong>Director:</strong> {info?.Director}</p>
-      <p className="italic"><strong>Year:</strong> {info?.Year}</p>
-      <p className="italic"><strong>Rated:</strong> {info?.Rated}</p>
-      <p className="italic"><strong>Genre:</strong> {info?.Genre}</p>
+      <p className="italic hidden md:block"><strong>Year:</strong> {info?.Year}</p>
+      <p className="italic hidden md:block"><strong>Rated:</strong> {info?.Rated}</p>
+      <p className="italic hidden md:block"><strong>Genre:</strong> {info?.Genre}</p>
       <p className="italic"><strong>Writer:</strong> {info?.Writer}</p>
       <p className="italic"><strong>Actors:</strong> {info?.Actors}</p>
-      <p className="italic"><strong>Plot:</strong> {info?.Plot}</p>
+      {isLargeScreen ?  <p className="italic"><strong>Plot:</strong> {info?.Plot}</p> :  <p className="italic"><strong>Plot:</strong> {info?.Plot.slice(0,150)}...</p>}
+     
       <p className="italic"><strong>Awards:</strong> {info?.Awards}</p>
       <p className="italic"><strong>IMDb Rating:</strong> {info?.imdbRating}</p>
       <p className="italic">
@@ -267,6 +271,7 @@ export default function Recommend() {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
