@@ -135,6 +135,15 @@ export const Navbar = () => {
           Sign Up
         </Button>
           </DropdownMenuItem>
+           <DropdownMenuItem>
+            <Button
+          variant="ghost"
+          className="text-md hover:underline underline-offset-4 transition-all duration-200 font-semibold"
+          onClick={goToHome}
+        >
+          Home
+        </Button>
+          </DropdownMenuItem>
           <DropdownMenuItem>
             <Button
           variant="ghost"
