@@ -33,7 +33,7 @@ const Watchlist = ({ user }: { user: string }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const res = await axios.get(`${url}/api/pages/getWatchlist`);
+        const res = await axios.get(`${url}/api/pages/getWatchlis`);
         const rawList = res.data.filmWatchlist || [];
 
         const newList: Movie[] = [];
@@ -126,11 +126,11 @@ const Watchlist = ({ user }: { user: string }) => {
           />
         </Carousel>
       ) : (
-        <div className="flex flex-col justify-center items-center gap-4 w-full mt-4">
-          <div className="font-bold text-2xl text-black">
-            Welcome, {user}! Start by creating your WatchList.
+        <div className="flex flex-col justify-center items-center gap-2 w-full mt-4">
+          <div className="font-bold italic text-2xl text-black">
+            Start by searching a Movie. <br/>Add it to your Watchlist
           </div>
-          <Button onClick={() => handleNav("/api/v1/watchlist")}>WatchList</Button>
+
         </div>
       )}
     </div>

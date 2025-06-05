@@ -45,23 +45,54 @@ export const Navbar = () => {
   const goToHome= ()=>{
     router.push('/v1/home')
   }
+  const handleLogout =async ()=>{
+    await signOut()
+    router.push('/')
+  }
   return (
     <div className="px-1 py-1 md:px-6 md:py-4 flex items-center justify-between text-red shadow-md">
       <div className="flex items-center gap-2 md:gap-4">
-        <Button
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+          <Button
+          variant="ghost"
+          className="text-md hidden md:block hover:underline underline-offset-4 transition-all duration-200 font-semibold"
+          
+        >
+          User
+        </Button>
+            </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem>
+              <Button
           variant="ghost"
           className="text-md hidden md:block hover:underline underline-offset-4 transition-all duration-200 font-semibold"
           onClick={handleSignin}
         >
           Sign In
         </Button>
-        <Button
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Button
           variant="ghost"
-          className="text-md  hidden md:block hover:underline underline-offset-4 transition-all duration-200 font-semibold"
+          className="text-md hidden md:block hover:underline underline-offset-4 transition-all duration-200 font-semibold"
           onClick={handleSignUp}
         >
           Sign Up
         </Button>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Button
+          variant="ghost"
+          className="text-md hidden md:block hover:underline underline-offset-4 text-red-600 transition-all duration-200 font-semibold"
+          onClick={handleLogout}
+        >
+          Logout
+        </Button>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        
         <Button
           variant="ghost"
           onClick={goToHome}
@@ -155,9 +186,9 @@ export const Navbar = () => {
           </DropdownMenuItem>
            <DropdownMenuItem>
             <Button
-            onClick={()=>signOut()}
+            onClick={handleLogout}
           variant="ghost"
-          className="text-md hover:underline underline-offset-4 transition-all duration-200 font-semibold"
+          className="text-md hover:underline underline-offset-4 text-red-600 transition-all duration-200 font-semibold"
         >
           Logout
         </Button>
