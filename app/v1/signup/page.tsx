@@ -31,7 +31,7 @@ const Signup = () => {
         password: form.password,
       });
       console.log("Signed up successfully:", res.data);
-      signIn()
+      signIn(undefined, { callbackUrl: "/v1/home" });
       
     } catch (err: any) {
       console.error("Signup failed:", err.response?.data || err.message);

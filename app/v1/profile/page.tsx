@@ -58,7 +58,7 @@ const EditProfile = () => {
       setSuccessMsg("Profile updated successfully!");
       setProfilePhoto(uploadedUrl);
       setTimeout(()=>signOut(),1000)
-      signIn()
+      signIn(undefined, { callbackUrl: "/v1/home" });
     } catch (err) {
       console.error("Error updating profile", err);
       setSuccessMsg("Error updating profile.");
