@@ -33,7 +33,7 @@ const Watchlist = ({ user }: { user: string }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const res = await axios.get(`${url}/api/pages/getWatchlis`);
+        const res = await axios.get(`${url}/api/pages/getWatchlist`);
         const rawList = res.data.filmWatchlist || [];
 
         const newList: Movie[] = [];
