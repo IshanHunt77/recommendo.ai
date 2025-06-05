@@ -16,9 +16,9 @@ const Home = () => {
   const handleNav = () => {
     router.push("/member");
   };
-  // if(status==="authenticated"){
-  //   return <Home2/>
-  // }
+  if(status==="authenticated"){
+    return <Home2/>
+  }
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex justify-between p-2 md:p-4">
@@ -33,7 +33,7 @@ const Home = () => {
     className="absolute w-full h-full object-cover"
   />
 
-  {/* Darker gradient from top to bottom */}
+  
   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black" />
 
   <div className="absolute inset-0 flex items-end md:items-center md:items-end mb-10 justify-center md:justify-end md:pr-16">
