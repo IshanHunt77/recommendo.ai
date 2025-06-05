@@ -1,6 +1,7 @@
 "use client";
 import { CgProfile } from "react-icons/cg";
-
+import Person2Icon from '@mui/icons-material/Person2';
+import PersonIcon from '@mui/icons-material/Person';
 import { Button } from "@/componentsShadcn/ui/button";
 import { Input } from "@/componentsShadcn/ui/input";
 import { signIn, signOut } from "next-auth/react";
@@ -86,7 +87,7 @@ export const Navbar = () => {
       <div className="flex items-center gap-2 md:gap-4">
         <Input
           placeholder="Search Movies, Series..."
-          className="w-20 md:w-64"
+          className="w-30 md:w-64"
           onChange={handleChange}
           value={movie}
         />
@@ -102,7 +103,7 @@ export const Navbar = () => {
        <div className="md:hidden block">
         <DropdownMenu >
           <div className="p-2">
-        <DropdownMenuTrigger><CgProfile/></DropdownMenuTrigger>
+        <DropdownMenuTrigger><PersonIcon/></DropdownMenuTrigger>
 
           </div>
         <DropdownMenuContent>

@@ -144,9 +144,7 @@ export default function Recommend() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex justify-between p-4">
-        <div className="italic text-2xl mt-1 md:text-6xl font-bold text-black underline decoration-black">
-          Recommend'o
-        </div>
+        <div className="italic text-2xl md:text-6xl mt-1 font-bold text-black underline decoration-black">Recommend'o</div>
         <Navbar />
       </div>
 
