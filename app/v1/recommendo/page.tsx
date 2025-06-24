@@ -37,7 +37,7 @@ const Home = () => {
 
         
         <div className="absolute top-0 left-0 right-0 z-50 flex justify-between p-2 md:p-4 bg-gradient-to-b from-black/80 via-black/40 to-transparent">
-          <div className="italic text-2xl md:text-6xl mt-1 font-bold bg-gradient-to-r from-[#6C2EBE] to-[#8F43EE] bg-clip-text text-transparent underline decoration-[#8F43EE]">Recommend'o</div>
+          <div className="italic text-2xl md:text-6xl mt-1 font-bold bg-gradient-to-r from-[#ffffff] to-[#ffffff] bg-clip-text text-transparent underline decoration-[#8F43EE]">Recommend'o</div>
           <Navbar />
         </div>
 
