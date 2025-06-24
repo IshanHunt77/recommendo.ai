@@ -44,17 +44,30 @@ const ExploreMovies: React.FC = () => {
   }, []);
 
   return (
-    <div className="mt-10">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Explore Movies</h2>
-      <div className="flex flex-row gap-2 md:gap-6 justify-center">
+    <div className="mt-10 bg-[#0d0d0d] p-6 rounded-lg">
+      <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
+        Explore Movies
+      </h2>
+      <div className="flex flex-row gap-4 md:gap-6 justify-center flex-wrap">
         {movies.map((movie) => (
-          <div key={movie.imdbID} className="w-40 flex flex-col items-center">
-            <img
-              src={movie.Poster}
-              alt={movie.Title}
-              className="w-24 h-30 md:w-full md:h-auto object-cover rounded-md shadow-md"
-            />
-            <p className="mt-2 text-center text-sm text-gray-700">{movie.Title}</p>
+          <div key={movie.imdbID} className="w-32 md:w-40 flex flex-col items-center group">
+            <div className="relative overflow-hidden rounded-md shadow-lg hover:shadow-[#00d735]/25 transition-all duration-200">
+              <img
+                src={movie.Poster}
+                alt={movie.Title}
+                className="w-24 h-36 md:w-32 md:h-48 object-cover rounded-md hover:scale-105 transition-transform duration-200"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-md">
+                <div className="absolute bottom-2 left-2 right-2">
+                  <p className="text-white text-xs font-medium truncate">
+                    {movie.Title}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p className="mt-3 text-center text-sm text-gray-300 group-hover:text-[#00d735] transition-colors duration-200 font-medium">
+              {movie.Title}
+            </p>
           </div>
         ))}
       </div>

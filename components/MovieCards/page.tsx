@@ -31,7 +31,7 @@ const MovieCards = () => {
 
   useEffect(() => {
     const fetchPosters = async () => {
-      const omdbApiKey = "c10096d"; 
+      const omdbApiKey = "3f31a6b5"; 
       const fetchedPosters: string[] = [];
 
       for (const item of movies) {

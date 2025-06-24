@@ -48,30 +48,39 @@ const RecommendationCard = ({ imageUrl, film }: Type) => {
   };
 
   return (
-    <Card className="relative w-18 md:w-48 flex flex-col overflow-hidden rounded-sm shadow-lg p-0 gap-0 hover:shadow-2xl transition-shadow duration-300" onClick={handleNav}>
-      <div className="relative h-28 w-full md:h-54 flex items-center justify-center">
+    <Card className="relative w-18 md:w-48 flex flex-col overflow-hidden rounded-lg shadow-lg p-0 gap-0 bg-[#181818] border border-[#e50914]/30 hover:shadow-2xl hover:shadow-[#e50914]/30 hover:border-[#e50914]/60 transition-all duration-300 group cursor-pointer" onClick={handleNav}>
+      <div className="relative h-28 w-full md:h-54 flex items-center justify-center overflow-hidden">
        
         {isImageLoading && !hasImageError ? (
          
           <LoaderComponent />
         ) : hasImageError ? (
          
-          <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs text-center p-2">
-            Image Load Error
+          <div className="w-full h-full bg-gradient-to-br from-[#181818] to-black flex items-center justify-center text-gray-400 text-xs text-center p-2 border border-[#e50914]/30">
+            <div className="text-center">
+              <div className="text-[#e50914] mb-1">🎬</div>
+              <div>Image Load Error</div>
+            </div>
           </div>
         ) : !imageUrl ? (
          
-          <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs text-center p-2">
-            No Image Available
+          <div className="w-full h-full bg-gradient-to-br from-[#181818] to-black flex items-center justify-center text-gray-400 text-xs text-center p-2 border border-[#e50914]/30">
+            <div className="text-center">
+              <div className="text-[#e50914] mb-1">🎬</div>
+              <div>No Image Available</div>
+            </div>
           </div>
         ) : (
           
           <img
             src={imageUrl}
             alt={film}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         )}
+
+       
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
        
         {imageUrl && ( 
@@ -86,10 +95,14 @@ const RecommendationCard = ({ imageUrl, film }: Type) => {
        
 
       </div>
-
-      <h3 className="bg-black hidden md:block text-white text-center p-2 text-sm break-words">
-        {film.slice(0,15)}
-      </h3>
+      {isLargeScreen && (
+        <div className="bg-gradient-to-r from-[#181818] to-black p-3 border-t border-[#e50914]/30">
+        <h3 className="text-white text-center text-sm break-words font-medium group-hover:text-[#e50914] transition-colors duration-200">
+          {film.slice(0,15)}
+        </h3>
+      </div>
+      )}
+      
     </Card>
   );
 };

@@ -142,21 +142,20 @@ export default function Recommend() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-black via-[#181818] to-black">
       <div className="flex justify-between p-4">
-        <div className="italic text-2xl md:text-6xl mt-1 font-bold text-black underline decoration-black">Recommend'o</div>
+        <div className="italic text-2xl md:text-6xl mt-2 md:mt-1 font-bold text-[#e50914] underline decoration-[#e50914] drop-shadow-lg">Recommend'o</div>
         <Navbar />
       </div>
 
      <div className="flex flex-wrap mt-10 px-4">
   <div className="w-full lg:w-3/4 xl:w-2/3 px-4 relative">
    
-    <div className="absolute top-4 right-4 z-10 mr-3
-    ">
+    <div className="absolute top-4 right-4 z-10 mr-3">
       <Watchlistlogo filmName={movieName} />
     </div>
 
-    <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 border border-gray-300">
+    <div className="bg-[#181818] rounded-lg shadow-xl p-4 sm:p-6 border border-[#e50914]/30">
   <div className="grid grid-cols-2 gap-4 sm:gap-6 items-start">
     
     {!info?.Poster ? (
@@ -165,28 +164,28 @@ export default function Recommend() {
       </div>
     ) : (
       <img
-        className="rounded-md mt-15 md:mt-0 shadow-md h-64 w-96 sm:h-134 object-cover"
+        className="rounded-md mt-15 md:mt-0 shadow-lg hover:shadow-[#e50914]/30 transition-shadow duration-200 h-64 w-96 sm:h-134 object-cover border-4 border-[#e50914]/40"
         src={info?.Poster}
         alt="Movie Poster"
       />
     )}
 
    
-    <div className="flex flex-col justify-start space-y-2 sm:space-y-3 text-black text-xs sm:text-sm md:text-base">
-      <h3 className="text-base sm:text-xl md:text-3xl font-bold">{info?.Title}</h3>
-      <p className="italic"><strong>Director:</strong> {info?.Director}</p>
-      <p className="italic hidden md:block"><strong>Year:</strong> {info?.Year}</p>
-      <p className="italic hidden md:block"><strong>Rated:</strong> {info?.Rated}</p>
-      <p className="italic hidden md:block"><strong>Genre:</strong> {info?.Genre}</p>
-      <p className="italic"><strong>Writer:</strong> {info?.Writer}</p>
-      <p className="italic"><strong>Actors:</strong> {info?.Actors}</p>
-      {isLargeScreen ?  <p className="italic"><strong>Plot:</strong> {info?.Plot}</p> :  <p className="italic"><strong>Plot:</strong> {info?.Plot.slice(0,150)}...</p>}
+    <div className="flex flex-col justify-start space-y-2 sm:space-y-3 text-white text-xs sm:text-sm md:text-base">
+      <h3 className="text-base sm:text-xl md:text-3xl font-bold text-[#e50914]">{info?.Title}</h3>
+      <p className="italic"><strong className="text-[#e50914]">Director:</strong> <span className="text-gray-300">{info?.Director}</span></p>
+      <p className="italic hidden md:block"><strong className="text-[#e50914]">Year:</strong> <span className="text-gray-300">{info?.Year}</span></p>
+      <p className="italic hidden md:block"><strong className="text-[#e50914]">Rated:</strong> <span className="text-gray-300">{info?.Rated}</span></p>
+      <p className="italic hidden md:block"><strong className="text-[#e50914]">Genre:</strong> <span className="text-gray-300">{info?.Genre}</span></p>
+      <p className="italic"><strong className="text-[#e50914]">Writer:</strong> <span className="text-gray-300">{info?.Writer}</span></p>
+      <p className="italic"><strong className="text-[#e50914]">Actors:</strong> <span className="text-gray-300">{info?.Actors}</span></p>
+      {isLargeScreen ?  <p className="italic"><strong className="text-[#e50914]">Plot:</strong> <span className="text-gray-300">{info?.Plot}</span></p> :  <p className="italic"><strong className="text-[#e50914]">Plot:</strong> <span className="text-gray-300">{info?.Plot.slice(0,150)}...</span></p>}
      
-      <p className="italic"><strong>Awards:</strong> {info?.Awards}</p>
-      <p className="italic"><strong>IMDb Rating:</strong> {info?.imdbRating}</p>
+      <p className="italic"><strong className="text-[#e50914]">Awards:</strong> <span className="text-gray-300">{info?.Awards}</span></p>
+      <p className="italic"><strong className="text-[#e50914]">IMDb Rating:</strong> <span className="text-gray-300">{info?.imdbRating}</span></p>
       <p className="italic">
-        <strong>Rotten Tomatoes:</strong>{" "}
-        {info?.Ratings?.find((r) => r.Source === "Rotten Tomatoes")?.Value ?? "N/A"}
+        <strong className="text-[#e50914]">Rotten Tomatoes:</strong>{" "}
+        <span className="text-gray-300">{info?.Ratings?.find((r) => r.Source === "Rotten Tomatoes")?.Value ?? "N/A"}</span>
       </p>
     </div>
   </div>
@@ -205,7 +204,7 @@ export default function Recommend() {
         <div className="w-full lg:w-1/2 px-4">
         {reviews && reviews.length > 0 ? (
   <>
-    <div className="font-bold text-2xl italic text-black mb-6 ml-2">
+    <div className="font-bold text-2xl italic text-white mb-6 ml-2">
       Popular Reviews
     </div>
     {reviews.slice(l, l + 2).map((rev, index) => (
@@ -223,7 +222,7 @@ export default function Recommend() {
     ))}
   </>
 ) : (
-  <div className="font-bold text-2xl text-black italic mt-4 ml-2">
+  <div className="font-bold text-2xl text-white italic mt-4 ml-2">
     No Reviews yet. Be the first to write one!
   </div>
 )}
@@ -233,7 +232,7 @@ export default function Recommend() {
           {reviews && l + 2 < reviews.length && (
             <button
               onClick={() => setL(l + 2)}
-              className="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
+              className="mt-4 px-6 py-3 bg-gradient-to-r from-[#e50914] to-[#b0060f] hover:from-[#b0060f] hover:to-[#7f040b] text-white rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-[#e50914]/30"
             >
               Load More Reviews
             </button>
@@ -242,14 +241,14 @@ export default function Recommend() {
 
       
         <div className="w-full lg:w-1/2 px-4 flex flex-col justify-end h-96">
-          <div className="font-bold text-black text-2xl italic mb-4">Discuss Film</div>
-          <div className="border rounded-lg h-64 p-4 overflow-y-auto bg-gray-50 flex-1" ref={chatRef}>
+          <div className="font-bold text-white text-2xl italic mb-4">Discuss Film</div>
+          <div className="border border-[#e50914]/30 rounded-lg h-64 p-4 overflow-y-auto bg-[#181818] flex-1" ref={chatRef}>
             {chats.map((c) => (
               <div key={c.id} className={`flex ${c.user === "You" ? "justify-end" : "justify-start"}`}>
                 <div className="rounded-full h-8 w-8 mr-2 mt-1 overflow-hidden">
                   <img src={c.dp || dp || '/batmanLogo.jpeg'} alt="profilephoto" className="h-full w-full object-cover" />
                 </div>
-                <div className={`${c.user === "You" ? "bg-blue-400 grid grid-col-4" : "bg-red-400"} mb-2 p-2 rounded shadow-sm max-w-xs`}>
+                <div className={`${c.user === "You" ? "bg-[#e50914] text-white" : "bg-[#333333] text-white"} mb-2 p-2 rounded shadow-sm max-w-xs`}>
                   <p className="text-md"><strong className="col-span-1">{c.user}:</strong> {c.text}</p>
                 </div>
               </div>
@@ -259,11 +258,11 @@ export default function Recommend() {
             <input
               type="text"
               placeholder="Type your message..."
-              className="flex-grow border rounded-l-lg p-2 focus:outline-none"
+              className="flex-grow border border-[#e50914]/30 rounded-l-lg p-2 focus:outline-none focus:border-[#e50914] bg-[#181818] text-white placeholder:text-gray-400"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <button type="submit" className="bg-black text-white px-4 rounded-r-lg">
+            <button type="submit" className="bg-gradient-to-r from-[#e50914] to-[#b0060f] hover:from-[#b0060f] hover:to-[#7f040b] text-white px-4 rounded-r-lg font-semibold transition-all duration-200">
               Send
             </button>
           </form>

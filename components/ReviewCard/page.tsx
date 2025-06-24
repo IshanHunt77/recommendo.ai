@@ -69,46 +69,46 @@ const ReviewCard = ({ dp, review, author, likes, year, filmname ,rating,reviewId
   }
 
   return (
-    <Card className="w-96 md:w-full max-w-4xl flex flex-col mb-6 p-2 pt-6 md:p-6 bg-gradient-to-r from-gray-800 to-gray-700 text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out">
+    <Card className="w-92 md:w-full max-w-4xl flex flex-col mb-6 p-2 pt-6 md:p-6 bg-gradient-to-br from-black to-[#3D1766]/60 text-white rounded-xl shadow-lg hover:shadow-2xl hover:shadow-[#6C2EBE]/30 transition-all duration-300 ease-in-out border border-[#6C2EBE]/30 hover:border-[#8F43EE]/60">
   <div className="grid grid-cols-5 gap-10">
     <CardComponent imageUrl={poster} h={h} w={w} watchlist={false} movieCards={false} />
     <div className="flex flex-col col-span-4 justify-between ml-6 md:ml-0">
       <div className="mb-2">
-        <h1 className="text-2xl font-bold">{filmname} <span className="text-lg font-medium text-gray-300">({year})</span></h1>
+        <h1 className="text-2xl font-bold text-white">{filmname} <span className="text-lg font-medium text-[#8F43EE]">({year})</span></h1>
       </div>
 
       <div className="flex items-center mb-2">
         <img
           src={dp || "/EmptyImage.png"}
           alt="User avatar"
-          className="rounded-full w-9 h-9 mr-3 border-2 border-green-500"
+          className="rounded-full w-9 h-9 mr-3 border-2 border-[#6C2EBE]"
         />
-        <p className="text-sm font-semibold">by {author}</p>
+        <p className="text-sm font-semibold text-gray-200">by <span className="text-[#8F43EE]">{author}</span></p>
       </div>
 
-      <p className="text-md text-gray-200 italic mt-2 mb-3">{review}</p>
+      <p className="text-md text-gray-300 italic mt-2 mb-3">{review}</p>
       <Rating rating={rating} />
     </div>
   </div>
 
-  <div className="flex justify-start items-center gap-2 mt-0 md:mt-4 border-t border-gray-600 pt-3">
+  <div className="flex justify-start items-center gap-2 mt-0 md:mt-4 border-t border-[#6C2EBE]/30 pt-3">
     <FavoriteIcon
       onClick={(e) => {
         e.stopPropagation();
         handleUpvote();
       }}
-      sx={{ color: "#4ade80", cursor: "pointer" }}
+      sx={{ color: "#8F43EE", cursor: "pointer" }}
     />
-    {likesUpdate ? <span className="text-sm text-gray-300">{likes+1}</span>:<span className="text-sm text-gray-300">{likes}</span>}
+    {likesUpdate ? <span className="text-sm text-[#8F43EE]">{likes+1}</span>:<span className="text-sm text-[#8F43EE]">{likes}</span>}
     
     <ModeCommentIcon
       onClick={(e) => {
         e.stopPropagation();
         handleComment();
       }}
-      sx={{ color: "#4ade80", cursor: "pointer" }}
+      sx={{ color: "#8F43EE", cursor: "pointer" }}
     />
-        <span className="text-sm text-gray-300">{comment.length}</span>
+        <span className="text-sm text-[#8F43EE]">{comment.length}</span>
 
   </div>
 </Card>

@@ -16,26 +16,26 @@ const Home2 = () => {
 
   return (
     
-    <div className="flex flex-col min-h-screen bg-white px-6 py-4">
+    <div className="flex flex-col min-h-screen bg-[#0d0d0d] px-6 py-4">
      
-      <div className="flex justify-between items-center mb-6 gap-4 ">
-        <div className="italic text-2xl md:text-6xl mt-1 font-bold text-black underline decoration-black">Recommend'o</div>
+      <div className="flex justify-between items-center mb-6 gap-4">
+        <div className="italic text-2xl md:text-6xl mt-1 font-bold text-[#00d735] underline decoration-[#00d735]">Recommend'o</div>
         <Navbar />
       </div>
 
     
       <div className="text-center mb-10 mt-10">
-        <h1 className="text-3xl sm:text-5xl font-bold text-gray-800 text-center">
+        <h1 className="text-3xl sm:text-5xl font-bold text-white text-center">
   {session?.user?.name ? (
     <>
-      Welcome back, {session.user.name.split(" ")[0]}!
+      Welcome back, <span className="text-[#00d735]">{session.user.name.split(" ")[0]}</span>!
       <br />
-      <span className="text-xl sm:text-2xl font-medium text-gray-700">
+      <span className="text-xl sm:text-2xl font-medium text-gray-300">
         Continue with your watchlist
       </span>
     </>
   ) : (
-    "Welcome!"
+    <span className="text-[#00d735]">Welcome!</span>
   )}
 </h1>
 
