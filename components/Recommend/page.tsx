@@ -145,7 +145,7 @@ export default function Recommend() {
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-black via-[#181818] to-black">
       <div className="flex justify-between p-4">
         <div className="italic text-2xl md:text-6xl mt-2 md:mt-1 font-bold text-[#e50914] underline decoration-[#e50914] drop-shadow-lg">Recommend'o</div>
-        <Navbar />
+        <Navbar page="recommendation" />
       </div>
 
      <div className="flex flex-wrap mt-10 px-4">

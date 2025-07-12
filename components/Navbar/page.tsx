@@ -19,14 +19,44 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
 import { useMediaQuery } from "@mui/material";
 
+interface NavbarProps {
+  page?: string;
+}
 
-export const Navbar = () => {
+export const Navbar = ({ page = "home" }: NavbarProps) => {
   const [movie, setMovie] = useState("");
   const router = useRouter();
   const isLargeScreen = useMediaQuery("(min-width: 768px)")
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMovie(e.target.value);
   };
+  
+  const colorMap = new Map<string, string>();
+  colorMap.set("home", "#00d735");
+  colorMap.set("user", "#00d735");
+  colorMap.set("recommendation", "#e50914");
+  colorMap.set("profile", "#00d735");
+  colorMap.set("signup", "#3D1766");
+  colorMap.set("recommendo", "#8F43EE");
+
+  const currentColor = colorMap.get(page) || "#3D1766";
+  const lighterColor = getLighterShade(currentColor);
+
+  function getLighterShade(hex: string): string {
+    // Convert hex to RGB
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    
+    // Make it lighter by increasing each component
+    const lighterR = Math.min(255, r + 40);
+    const lighterG = Math.min(255, g + 40);
+    const lighterB = Math.min(255, b + 40);
+    
+    // Convert back to hex
+    return `#${lighterR.toString(16).padStart(2, '0')}${lighterG.toString(16).padStart(2, '0')}${lighterB.toString(16).padStart(2, '0')}`;
+  }
 
   const handleSignin = () => {
     sessionStorage.setItem("showHome","true")
@@ -56,35 +86,40 @@ export const Navbar = () => {
           <DropdownMenuTrigger>
           <Button
           variant="ghost"
-          className="text-md hidden md:block hover:bg-gradient-to-r hover:from-[#22c55e]/20 hover:to-[#16a34a]/20 transition-all duration-200 font-semibold text-white hover:text-white"
-          
+          className="text-md hidden md:block transition-all duration-200 font-semibold text-white hover:text-white"
+          style={{
+            background: `linear-gradient(to right, ${currentColor}20, ${lighterColor}20)`,
+          }}
         >
           User
         </Button>
             </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-[#0d0d0d] backdrop-blur-lg border border-[#22c55e]/50 shadow-xl">
-            <DropdownMenuItem className="hover:bg-[#22c55e]/20 focus:bg-[#22c55e]/20 rounded-md">
+          <DropdownMenuContent className="bg-[#0d0d0d] backdrop-blur-lg border shadow-xl" style={{ borderColor: `${currentColor}50` }}>
+            <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
               <Button
           variant="ghost"
-          className="text-md hidden md:block hover:bg-transparent transition-all duration-200 font-semibold text-white hover:text-[#22c55e] w-full justify-start"
+          className="text-md hidden md:block hover:underline hover:bg-transparent transition-all duration-200 font-semibold text-white w-full justify-start"
+          style={{ '--tw-text-opacity': '1', color: 'white' } as React.CSSProperties}
           onClick={handleSignin}
         >
           Sign In
         </Button>
             </DropdownMenuItem>
-            <DropdownMenuItem className="hover:bg-[#22c55e]/20 focus:bg-[#22c55e]/20 rounded-md">
+            <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
               <Button
           variant="ghost"
-          className="text-md hidden md:block hover:bg-transparent transition-all duration-200 font-semibold text-white hover:text-[#22c55e] w-full justify-start"
+          className="text-md hidden md:block hover:underline hover:bg-transparent transition-all duration-200 font-semibold text-white w-full justify-start"
+          style={{ '--tw-text-opacity': '1', color: 'white' } as React.CSSProperties}
           onClick={handleSignUp}
         >
           Sign Up
         </Button>
             </DropdownMenuItem>
-            <DropdownMenuItem className="hover:bg-[#22c55e]/20 focus:bg-[#22c55e]/20 rounded-md">
+            <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
               <Button
           variant="ghost"
-          className="text-md hidden md:block hover:bg-transparent transition-all duration-200 font-semibold text-[#22c55e] hover:text-[#16a34a] w-full justify-start"
+          className="text-md hidden md:block hover:underline hover:bg-transparent transition-all duration-200 font-semibold w-full justify-start"
+          style={{ color: currentColor }}
           onClick={handleLogout}
         >
           Logout
@@ -96,20 +131,29 @@ export const Navbar = () => {
         <Button
           variant="ghost"
           onClick={goToHome}
-          className="text-md hidden md:block hover:bg-gradient-to-r hover:from-[#22c55e]/20 hover:to-[#16a34a]/20 transition-all duration-200 font-semibold text-white hover:text-white"
+          className="text-md hidden md:block transition-all duration-200 font-semibold text-white hover:text-white"
+          style={{
+            background: `linear-gradient(to right, ${currentColor}20, ${lighterColor}20)`,
+          }}
         >
           Home
         </Button>
         <Button
           variant="ghost"
-          className="text-md hidden md:block hover:bg-gradient-to-r hover:from-[#22c55e]/20 hover:to-[#16a34a]/20 transition-all duration-200 font-semibold text-white hover:text-white"
+          className="text-md hidden md:block transition-all duration-200 font-semibold text-white hover:text-white"
+          style={{
+            background: `linear-gradient(to right, ${currentColor}20, ${lighterColor}20)`,
+          }}
         >
           Member
         </Button>
         <Button
           variant="ghost"
           onClick={goToProfile}
-          className="text-md hidden md:block hover:bg-gradient-to-r hover:from-[#22c55e]/20 hover:to-[#16a34a]/20 transition-all duration-200 font-semibold text-white hover:text-white pr-8"
+          className="text-md hidden md:block  transition-all duration-200 font-semibold text-white hover:text-white mr-4"
+          style={{
+            background: `linear-gradient(to right, ${currentColor}20, ${lighterColor}20)`,
+          }}
         >
           Profile
         </Button>
@@ -118,19 +162,27 @@ export const Navbar = () => {
       <div className="flex items-center gap-2 md:gap-4">
         <Input
           placeholder="Search Movies, Series..."
-          className="w-30 md:w-64 bg-[#1a1a1a]/50 border-[#22c55e]/30 text-white placeholder:text-gray-300 focus:border-[#22c55e]/50 focus:ring-[#22c55e]/20"
+          className="w-30 md:w-64 bg-[#1a1a1a]/50 text-white placeholder:text-gray-300"
+          style={{
+            borderColor: `${currentColor}30`,
+            '--tw-ring-color': `${currentColor}20`,
+          } as React.CSSProperties}
           onChange={handleChange}
           value={movie}
         />
         {isLargeScreen ? 
          <Button 
            onClick={handleNav}
-           className="bg-gradient-to-r from-[#22c55e] to-[#16a34a] hover:from-[#16a34a] hover:to-[#15803d] text-white font-semibold transition-all duration-200 shadow-lg hover:shadow-[#22c55e]/25"
+           className="text-white font-semibold transition-all duration-200 shadow-lg"
+           style={{
+             background: `${currentColor}`,
+             boxShadow: `0 4px 14px 0 ${currentColor}25`,
+           }}
          >
            Submit
          </Button>
         :
-        <div className="p-1bg-gradient-to-r from-[#22c55e] to-[#16a34a] rounded-full cursor-pointer hover:from-[#16a34a] hover:to-[#15803d] transition-all duration-200 shadow-lg hover:shadow-[#22c55e]/25">
+        <div className="p-1 rounded-full cursor-pointer transition-all duration-200 shadow-lg" >
           <FaSearch onClick={handleNav} className="text-white"/>
         </div>
         }
@@ -139,63 +191,69 @@ export const Navbar = () => {
        <div className="md:hidden block">
         <DropdownMenu >
           <div className="p-2">
-        <DropdownMenuTrigger className="p-1bg-gradient-to-r from-[#22c55e] to-[#16a34a] rounded-full hover:from-[#16a34a] hover:to-[#15803d] transition-all duration-200">
+        <DropdownMenuTrigger className="p-0 transition-all duration-200">
           <PersonIcon className="text-white"/>
         </DropdownMenuTrigger>
 
           </div>
-        <DropdownMenuContent className="bg-[#0d0d0d] backdrop-blur-lg border border-[#22c55e]/50 shadow-xl">
+        <DropdownMenuContent className="bg-[#0d0d0d] backdrop-blur-lg border shadow-xl" style={{ borderColor: `${currentColor}50` }}>
           
-          <DropdownMenuItem className="hover:bg-[#22c55e]/20 focus:bg-[#22c55e]/20 rounded-md">
+          <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
              <Button
           variant="ghost"
           onClick={goToProfile}
-          className="text-md hover:bg-transparent transition-all duration-200 font-semibold text-white hover:text-[#22c55e] w-full justify-start"
+          className="text-md hover:underline hover:bg-transparent transition-all duration-200 font-semibold text-white w-full justify-start"
+          style={{ '--tw-text-opacity': '1', color: 'white' } as React.CSSProperties}
         >
           Profile
         </Button>
           </DropdownMenuItem>
-          <DropdownMenuSeparator className="bg-[#22c55e]/30" />
-          <DropdownMenuItem className="hover:bg-[#22c55e]/20 focus:bg-[#22c55e]/20 rounded-md">
+          <DropdownMenuSeparator style={{ backgroundColor: `${currentColor}30` }} />
+          <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
             <Button
           variant="ghost"
-          className="text-md hover:bg-transparent transition-all duration-200 font-semibold text-white hover:text-[#22c55e] w-full justify-start"
+          className="text-md hover:underline hover:bg-transparent transition-all duration-200 font-semibold text-white w-full justify-start"
+          style={{ '--tw-text-opacity': '1', color: 'white' } as React.CSSProperties}
           onClick={handleSignin}
         >
           Sign In
         </Button>
           </DropdownMenuItem>
-          <DropdownMenuItem className="hover:bg-[#22c55e]/20 focus:bg-[#22c55e]/20 rounded-md">
+          <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
             <Button
           variant="ghost"
-          className="text-md hover:bg-transparent transition-all duration-200 font-semibold text-white hover:text-[#22c55e] w-full justify-start"
+          className="text-md hover:underline hover:bg-transparent transition-all duration-200 font-semibold text-white w-full justify-start"
+          style={{ '--tw-text-opacity': '1', color: 'white' } as React.CSSProperties}
           onClick={handleSignUp}
         >
           Sign Up
         </Button>
           </DropdownMenuItem>
-           <DropdownMenuItem className="hover:bg-[#22c55e]/20 focus:bg-[#22c55e]/20 rounded-md">
+           <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
             <Button
           variant="ghost"
-          className="text-md hover:bg-transparent transition-all duration-200 font-semibold text-white hover:text-[#22c55e] w-full justify-start"
+          className="text-md hover:underline hover:bg-transparent transition-all duration-200 font-semibold text-white w-full justify-start"
+          style={{ '--tw-text-opacity': '1', color: 'white' } as React.CSSProperties}
           onClick={goToHome}
         >
           Home
         </Button>
           </DropdownMenuItem>
-          <DropdownMenuItem className="hover:bg-[#22c55e]/20 focus:bg-[#22c55e]/20 rounded-md">
+           <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
             <Button
           variant="ghost"
-          className="text-md hover:bg-transparent transition-all duration-200 font-semibold text-white hover:text-[#22c55e] w-full justify-start"
+          className="text-md hover:underline hover:bg-transparent transition-all duration-200 font-semibold text-white w-full justify-start"
+          style={{ '--tw-text-opacity': '1', color: 'white' } as React.CSSProperties}
         >
           Member
         </Button>
           </DropdownMenuItem>
-           <DropdownMenuItem className="hover:bg-[#22c55e]/20 focus:bg-[#22c55e]/20 rounded-md">
+           <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
             <Button
             onClick={handleLogout}
           variant="ghost"
-          className="text-md hover:bg-transparent transition-all duration-200 font-semibold text-[#22c55e] hover:text-[#16a34a] w-full justify-start"
+          className="text-md hover:underline hover:bg-transparent transition-all duration-200 font-semibold w-full justify-start"
+          style={{ color: currentColor }}
         >
           Logout
         </Button>

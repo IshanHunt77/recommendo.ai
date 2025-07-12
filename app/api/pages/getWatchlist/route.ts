@@ -11,7 +11,8 @@ export const GET =async ()=>{
             }
             const filmWatchlist = await prisma.film.findMany({
                 where : {
-                    userId :  parseInt(session.user.id)
+                    userId :  parseInt(session.user.id),
+                    watched:false
                 }
             })
             return NextResponse.json({filmWatchlist},{status:201})

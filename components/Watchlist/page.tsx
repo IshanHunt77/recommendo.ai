@@ -14,6 +14,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 interface Movie {
   filmname: string;
@@ -29,6 +38,15 @@ const Watchlist = ({ user }: { user: string }) => {
   const url = process.env.NEXT_PUBLIC_BASE_URL;
   const omdbApiKey = process.env.NEXT_PUBLIC_OMDB_API_KEY;
   const isLargeScreen = useMediaQuery("(min-width: 768px)");
+
+  const handleMarkAsWatched = async (filmName: string) => {
+    try {
+      const res = await axios.post(`${url}/api/pages/updateWatch`, { filmName });
+      console.log(res.data);
+    } catch (err) {
+      console.error("Error marking as watched", err);
+    }
+  };
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -83,6 +101,7 @@ const Watchlist = ({ user }: { user: string }) => {
                 <div className="p-0 group">
                   <Card className="p-0 border-none shadow-none bg-transparent hover:scale-105 transition-transform duration-200">
                     <CardContent className="p-0 relative">
+                      
                       <img
                         src={movie.poster || "/fallback-poster.jpg"}
                         alt={`Poster of ${movie.filmname}`}
@@ -91,6 +110,31 @@ const Watchlist = ({ user }: { user: string }) => {
                           md:w-[192px] md:h-[288px]
                           object-cover shadow-lg hover:shadow-[#00d735]/20 transition-shadow duration-200"
                       />
+                      
+                      {/* MoreVertIcon positioned at top right */}
+                      <DropdownMenu>
+                        <DropdownMenuTrigger>
+                        <div className="absolute top-2 right-2 z-10">
+                        <div className="bg-black/70 backdrop-blur-sm rounded-full p-1 hover:bg-black/90 transition-all duration-200 cursor-pointer">
+                              <MoreVertIcon className="text-white text-sm md:text-base" />
+                            </div>
+                          </div>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="bg-[#0d0d0d] backdrop-blur-lg border border-[#00d735]/50 shadow-xl">
+                          <DropdownMenuItem className="hover:bg-[#00d735]/20 focus:bg-[#00d735]/20 rounded-md">
+                            <Button 
+                              onClick={() => handleMarkAsWatched(movie.filmname)}
+                              variant="ghost" 
+                              className="text-white hover:text-[#00d735] w-full justify-start text-sm"
+                            >
+                              Mark as Watched
+                            </Button>
+                          </DropdownMenuItem>
+                          
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                      
+                      
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-md">
                         <div className="absolute bottom-2 left-2 right-2">
                           <p className="text-white text-xs md:text-sm font-medium truncate">
@@ -125,7 +169,7 @@ const Watchlist = ({ user }: { user: string }) => {
          
           <CarouselNext
             className="
-              absolute top-1/2 right-1
+              absolute top-1/2 right-[-12px]
               transform -translate-y-1/2
               sm:right-2
               bg-[#0d0d0d]/90 backdrop-blur-sm text-[#00d735]

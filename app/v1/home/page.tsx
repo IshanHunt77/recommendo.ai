@@ -20,7 +20,7 @@ const Home2 = () => {
      
       <div className="flex justify-between items-center mb-6 gap-4">
         <div className="italic text-2xl md:text-6xl mt-1 font-bold text-[#00d735] underline decoration-[#00d735]">Recommend'o</div>
-        <Navbar />
+        <Navbar page="home" />
       </div>
 
     

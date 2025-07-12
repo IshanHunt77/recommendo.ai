@@ -14,17 +14,15 @@ const Home = () => {
   const {data:session,status} = useSession()
 
   const handleNav = () => {
-    router.push("/member");
+    router.push("/v1/signup");
   };
-  if(status==="authenticated"){
-    return <Home2/>
-  }
+  
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-black via-[#18122B] to-[#3D1766]">
       
       <div className="relative w-full h-102 md:h-150 overflow-hidden">
         <img 
-          src="/thurman.jpg"
+          src="/landing.jpg"
           alt="Pulp Fiction"
           className="absolute w-full h-full object-cover"
         />
@@ -37,15 +35,15 @@ const Home = () => {
 
         
         <div className="absolute top-0 left-0 right-0 z-50 flex justify-between p-2 md:p-4 bg-gradient-to-b from-black/80 via-black/40 to-transparent">
-          <div className="italic text-2xl md:text-6xl mt-1 font-bold bg-gradient-to-r from-[#ffffff] to-[#ffffff] bg-clip-text text-transparent underline decoration-[#8F43EE]">Recommend'o</div>
-          <Navbar />
+          <div className="italic text-2xl md:text-6xl mt-1 font-bold bg-gradient-to-r from-[#ffffff] to-[#ffffff] bg-clip-text text-transparent underline decoration-[#4B0082]">Recommend'o</div>
+          <Navbar page="recommendo" />
         </div>
 
        
         <div className="absolute inset-0 flex items-end md:items-center md:items-end mb-10 justify-center md:justify-end md:pr-16">
           <h1 className="text-white text-lg md:text-5xl font-bold text-right max-w-lg drop-shadow-lg">
             "Not sure what to watch next?<br />
-            <span className="bg-gradient-to-r from-[#6C2EBE] to-[#8F43EE] bg-clip-text text-transparent">Recommendo's got your back.</span>"
+            <span className="bg-gradient-to-r from-[#6C2EBE] to-[#e50914] bg-clip-text text-transparent">Recommendo's got your back.</span>"
           </h1>
         </div>
       </div>

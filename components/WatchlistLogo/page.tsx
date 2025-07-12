@@ -22,12 +22,12 @@ export const Watchlistlogo = ({ filmName }: { filmName: string }) => {
 
   return (
     <button
-      className="inline-flex items-center justify-center text-xl text-gray-800 bg-white rounded-full border border-gray-300 hover:bg-gray-100 hover:scale-105 transition-transform duration-200"
+      className="inline-flex items-center justify-center text-xl text-gray-800 bg-gray-800 rounded-full border border-red-600 hover:bg-gray-100 hover:scale-105 transition-transform duration-200"
       style={{ width: "36px", height: "36px" }}
       onClick={handleWatchlist}
       title="Add to Watchlist"
     >
-      {!watchedLogo ? <CiBookmark /> : <FaBookmark />}
+      {!watchedLogo ? <CiBookmark style={{color:"#e50914"}} /> : <FaBookmark style={{color:"#e50914"}} />}
     </button>
   );
 };
