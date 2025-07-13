@@ -91,7 +91,7 @@ const Signup = () => {
           </Button>
           <div className="flex justify-center items-center gap-2 pt-4">
   <p className="text-sm text-gray-700">Already have an account?</p>
-  <Button type="button" variant="link" className="text-blue-600 p-0 h-auto" onClick={() => signIn()}>
+  <Button type="button" variant="link" className="text-blue-600 p-0 h-auto" onClick={()=>signIn(undefined, { callbackUrl: "/v1/home" })}>
     Sign In
   </Button>
 </div>

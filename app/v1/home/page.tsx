@@ -6,10 +6,14 @@ import Watchlist from "../../../components/Watchlist/page";
 import ExploreMovies from "@/components/Explore/page";
 import Signup from "../signup/page";
 import Footer from "@/components/Footer/page";
+import LoaderComponent from "@/components/Loader/page";
+
 
 const Home2 = () => {
   const { data: session,status } = useSession();
-    
+    if(!status){
+      return <LoaderComponent/>
+    }
   if(status!=="authenticated"){
     return <Signup/>
   }

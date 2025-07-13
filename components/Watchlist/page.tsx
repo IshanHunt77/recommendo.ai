@@ -93,8 +93,8 @@ const Watchlist = ({ user }: { user: string }) => {
           opts={{ align: "start" }}
           className="relative w-full max-w-[1000px] mx-auto"
         >
-         
-          <CarouselContent className="gap-3">
+        <CarouselContent className={`gap-3 ${movies.length < 4 ? 'justify-center' : ''}`}>
+          
             {movies.map((movie, index) => (
              
               <CarouselItem key={index} className="basis-1/2 md:basis-1/3 lg:basis-1/4">
@@ -114,7 +114,7 @@ const Watchlist = ({ user }: { user: string }) => {
                       {/* MoreVertIcon positioned at top right */}
                       <DropdownMenu>
                         <DropdownMenuTrigger>
-                        <div className="absolute top-2 right-2 z-10">
+                        <div className="absolute top-0 right-2 z-10 md:mr-8 mt-2">
                         <div className="bg-black/70 backdrop-blur-sm rounded-full p-1 hover:bg-black/90 transition-all duration-200 cursor-pointer">
                               <MoreVertIcon className="text-white text-sm md:text-base" />
                             </div>
@@ -169,6 +169,7 @@ const Watchlist = ({ user }: { user: string }) => {
          
           <CarouselNext
             className="
+            //-12px
               absolute top-1/2 right-[-12px]
               transform -translate-y-1/2
               sm:right-2

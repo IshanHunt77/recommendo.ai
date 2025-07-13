@@ -45,7 +45,7 @@ export const PostReview = ({ film, dp }: { film: string; dp: string }) => {
         <div className="flex items-start space-x-4">
           <div className="relative">
             <img
-              src={dp || "/default.jpg"}
+              src={dp || "/EmptyImage.png"}
               alt="poster"
               className="w-12 h-12 rounded-full object-cover border-2 border-[#e50914]/40"
             />

@@ -38,7 +38,7 @@ export const Navbar = ({ page = "home" }: NavbarProps) => {
   colorMap.set("recommendation", "#e50914");
   colorMap.set("profile", "#00d735");
   colorMap.set("signup", "#3D1766");
-  colorMap.set("recommendo", "#8F43EE");
+  colorMap.set("recommendo", "#fbbf24");
 
   const currentColor = colorMap.get(page) || "#3D1766";
   const lighterColor = getLighterShade(currentColor);
@@ -83,17 +83,17 @@ export const Navbar = ({ page = "home" }: NavbarProps) => {
     <div className="px-1 py-1 md:px-6 md:py-4 flex items-center justify-between bg-transparent">
       <div className="flex items-center gap-2 md:gap-4">
         <DropdownMenu>
-          <DropdownMenuTrigger>
-          <Button
-          variant="ghost"
-          className="text-md hidden md:block transition-all duration-200 font-semibold text-white hover:text-white"
-          style={{
-            background: `linear-gradient(to right, ${currentColor}20, ${lighterColor}20)`,
-          }}
-        >
-          User
-        </Button>
-            </DropdownMenuTrigger>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="ghost"
+              className={`text-md hidden md:block transition-all duration-200 font-semibold text-white hover:underline decoration-[${currentColor}] hover:text-white`}
+              style={{
+                background: `transparent`,
+              }}
+            >
+              User
+            </Button>
+          </DropdownMenuTrigger>
           <DropdownMenuContent className="bg-[#0d0d0d] backdrop-blur-lg border shadow-xl" style={{ borderColor: `${currentColor}50` }}>
             <DropdownMenuItem className="rounded-md" style={{ '--tw-bg-opacity': '0.2', backgroundColor: `${currentColor}20` } as React.CSSProperties}>
               <Button
@@ -131,18 +131,18 @@ export const Navbar = ({ page = "home" }: NavbarProps) => {
         <Button
           variant="ghost"
           onClick={goToHome}
-          className="text-md hidden md:block transition-all duration-200 font-semibold text-white hover:text-white"
+          className={`text-md hidden md:block transition-all duration-200 font-semibold text-white hover:underline decoration-[${currentColor}] hover:text-white`}
           style={{
-            background: `linear-gradient(to right, ${currentColor}20, ${lighterColor}20)`,
+            background: `transparent`,
           }}
         >
           Home
         </Button>
         <Button
           variant="ghost"
-          className="text-md hidden md:block transition-all duration-200 font-semibold text-white hover:text-white"
+          className={`text-md hidden md:block transition-all duration-200 font-semibold text-white hover:underline decoration-[${currentColor}] hover:text-white`}
           style={{
-            background: `linear-gradient(to right, ${currentColor}20, ${lighterColor}20)`,
+            background: `transparent`,
           }}
         >
           Member
@@ -150,9 +150,9 @@ export const Navbar = ({ page = "home" }: NavbarProps) => {
         <Button
           variant="ghost"
           onClick={goToProfile}
-          className="text-md hidden md:block  transition-all duration-200 font-semibold text-white hover:text-white mr-4"
+          className={`text-md hidden md:block transition-all duration-200 font-semibold text-white hover:underline decoration-[${currentColor}] hover:text-white mr-4`}
           style={{
-            background: `linear-gradient(to right, ${currentColor}20, ${lighterColor}20)`,
+            background: `transparent`,
           }}
         >
           Profile

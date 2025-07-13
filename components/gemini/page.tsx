@@ -98,7 +98,7 @@ Only provide the movie names in this list format, without any additional descrip
 
   return (
     <div className="w-full lg:w-1/4 xl:w-1/3 px-4 mt-4 lg:mt-0">
-      <h1 className="text-black font-bold text-3xl mb-4">Recommendations</h1>
+      <h1 className="text-[#e50914] font-bold text-2xl  mb-4">Recommendations</h1>
       {error && <p className="text-red-500 mb-4">{error}</p>}
       {loadingRecommendations ? (
         <p>Loading recommendations...</p>

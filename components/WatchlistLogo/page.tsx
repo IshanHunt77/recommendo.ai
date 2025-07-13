@@ -22,8 +22,8 @@ export const Watchlistlogo = ({ filmName }: { filmName: string }) => {
 
   return (
     <button
-      className="inline-flex items-center justify-center text-xl text-gray-800 bg-gray-800 rounded-full border border-red-600 hover:bg-gray-100 hover:scale-105 transition-transform duration-200"
-      style={{ width: "36px", height: "36px" }}
+      className="inline-flex items-center justify-center text-xl text-gray-800 rounded-full border border-red-600 hover:bg-gray-100 hover:scale-105 transition-transform duration-200"
+      style={{ width: "36px", height: "36px",backgroundColor:"##181818" }}
       onClick={handleWatchlist}
       title="Add to Watchlist"
     >
