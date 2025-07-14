@@ -194,12 +194,7 @@ const Watchlist = ({ user }: { user: string }) => {
           <div className="text-gray-400 text-sm md:text-base">
             Add it to your Watchlist to see it here
           </div>
-          <Button 
-            onClick={() => handleNav('/v1/recommendo')}
-            className="bg-gradient-to-r from-[#00d735] to-[#00b32a] hover:from-[#00b32a] hover:to-[#009925] text-white font-semibold px-6 py-2 rounded-lg transition-all duration-200 shadow-lg hover:shadow-[#00d735]/25"
-          >
-            Explore Movies
-          </Button>
+          
         </div>
       )}
     </div>

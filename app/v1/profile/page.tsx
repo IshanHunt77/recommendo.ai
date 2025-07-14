@@ -69,23 +69,23 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-yellow-50 to-white px-4 py-8">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-900 underline underline-offset-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white px-4 py-8">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-amber-400 underline underline-offset-4">
         Edit Your Profile
       </h1>
 
       <div className="mb-6">
         <Avatar className="h-28 w-28 border border-gray-300">
-          <AvatarImage src={profilePhoto} />
+          <AvatarImage src='/EmptyImage.png' />
           <AvatarFallback>{username ? username[0]?.toUpperCase() : "U"}</AvatarFallback>
         </Avatar>
       </div>
 
       <div className="w-full max-w-md flex flex-col gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Username*</label>
           <Input
-            placeholder="Enter your new username"
+            placeholder="Enter your current or new username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="rounded-lg border border-gray-300"
@@ -119,7 +119,7 @@ const EditProfile = () => {
         <Button
           onClick={handleUpdate}
           disabled={loading}
-          className="mt-4 bg-black text-white rounded-lg py-2 hover:bg-gray-800"
+          className="mt-4 bg-amber-300 text-white rounded-lg py-2 hover:bg-gray-800"
         >
           {loading ? "Updating..." : "Save Changes"}
         </Button>
